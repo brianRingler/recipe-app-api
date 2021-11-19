@@ -1,0 +1,19 @@
+# version of docker 
+version: '3'
+
+services:
+  # servcie called app will build with context, thus we only have one app
+  # will be set to current directory
+  app:
+    build:
+      context: .
+    # all commands are one indenet 
+    # When done docker-compose build 
+    ports:
+     - "8000:8000"
+    volumes:
+     - ./app:/app 
+    command: >
+     sh -c "python manage.py runserver 0.0.0.0:8000" 
+
+     
